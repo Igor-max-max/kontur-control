@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+control.db
+control.db-shm
+control.db-wal
+build/
+dist/
+*.spec
+.vercel/
+.env
+.env.*
+!.env.example

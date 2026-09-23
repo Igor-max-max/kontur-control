@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Локальная браузерная демоверсия контроля поручений">
+  <title>Контур · Контроль поручений</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#overview" aria-label="На главную">
+      <span class="brand-mark">К</span>
+      <span>КОНТУР <small>Минобрнауки ЛНР</small></span>
+    </a>
+    <div class="system-state"><span class="pulse"></span> Браузерное демо</div>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div>
+        <p class="eyebrow">От письма до исполнения</p>
+        <h1>Сроки под контролем.<br><em>Без слепых зон.</em></h1>
+        <p class="lead">Надстройка над СЭД: предупреждает о рисках заранее и готовит данные для решения специалиста.</p>
+      </div>
+      <aside class="security-note">
+        <span class="lock">ИБ</span>
+        <div><strong>Данные только в этом браузере</strong><p>Сайт не отправляет данные на сервер. Не вводите реальные служебные или персональные данные: для работы с ними используйте защищённый контур.</p></div>
+      </aside>
+    </section>
+
+    <nav class="tabs" aria-label="Разделы">
+      <button class="tab active" data-panel="control">Контроль поручений</button>
+      <button class="tab" data-panel="modules">4 функции</button>
+      <button class="tab" data-panel="metrics">Показатели пилота</button>
+    </nav>
+
+    <section class="panel active" id="control-panel">
+      <div class="summary-grid" id="summary"></div>
+      <div class="section-head">
+        <div><p class="eyebrow">Локальное демо · не подключено к СЭД</p><h2>Поручения в работе</h2></div>
+        <div class="actions">
+          <button class="button secondary" id="add-button">+ Добавить</button>
+          <button class="button primary" id="run-button">Запустить напоминания</button>
+        </div>
+      </div>
+      <div class="notice" id="notice" hidden></div>
+      <p class="import-hint">Изменения сохраняются только в хранилище этого браузера. Excel-импорт и отправка email доступны в оконной версии приложения.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Документ</th><th>Исполнитель</th><th>Подразделение</th><th>Срок</th><th>Риск</th><th></th></tr></thead>
+          <tbody id="assignment-list"></tbody>
+        </table>
+      </div>
+      <p class="demo-caption">Все записи здесь учебные, не синхронизируются с оконной версией и не используются в отчётности.</p>
+    </section>
+
+    <section class="panel" id="modules-panel">
+      <div class="section-head"><div><p class="eyebrow">Архитектура решения</p><h2>Четыре цифровые функции</h2></div></div>
+      <div class="module-grid" id="module-list"></div>
+      <div class="human-rule"><strong>Человек принимает решение</strong><span>Остальные функции показаны как концепция и недоступны в браузерном демо.</span></div>
+    </section>
+
+    <section class="panel" id="metrics-panel">
+      <div class="section-head"><div><p class="eyebrow">До и после</p><h2>Измерения пилота</h2></div></div>
+      <div class="empty-warning">Значения не заполнены намеренно. Сначала проводится исходный замер, вымышленные цифры не используются.</div>
+      <div class="metric-list" id="metric-list"></div>
+    </section>
+  </main>
+
+  <dialog id="assignment-dialog">
+    <form id="assignment-form">
+      <div class="dialog-head"><div><p class="eyebrow">Служебные реквизиты</p><h2>Новое поручение</h2></div><button type="button" class="close" aria-label="Закрыть">×</button></div>
+      <label>Номер документа<input name="doc_number" required placeholder="Например, 01-12/458"></label>
+      <label>Исполнитель<input name="assignee" required placeholder="Фамилия И. О."></label>
+      <label>Подразделение<input name="department" required></label>
+      <label>Срок исполнения<input name="due_date" type="date" required></label>
+      <p class="form-note">Используйте только вымышленные данные. Браузерная версия не предназначена для рабочих поручений.</p>
+      <button class="button primary wide" type="submit">Поставить на контроль</button>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
