@@ -1,0 +1,13 @@
+.git/
+.vercel/
+.env*
+control.db*
+dist/
+build/
+__pycache__/
+*.py
+*.pyc
+*.spec
+*.ps1
+README.md
+test_*.py
