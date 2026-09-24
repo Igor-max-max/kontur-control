@@ -30,9 +30,9 @@
     </section>
 
     <nav class="tabs" aria-label="Разделы">
-      <button class="tab active" data-panel="control">Контроль поручений</button>
-      <button class="tab" data-panel="modules">4 функции</button>
-      <button class="tab" data-panel="metrics">Показатели пилота</button>
+      <button type="button" class="tab active" data-panel="control" onclick="showPanel('control')">Контроль поручений</button>
+      <button type="button" class="tab" data-panel="modules" onclick="showPanel('modules')">4 функции</button>
+      <button type="button" class="tab" data-panel="metrics" onclick="showPanel('metrics')">Показатели пилота</button>
     </nav>
 
     <section class="panel active" id="control-panel">
@@ -79,6 +79,15 @@
       <button class="button primary wide" type="submit">Поставить на контроль</button>
     </form>
   </dialog>
-  <script src="app.js"></script>
+  <script>
+    function showPanel(panel) {
+      document.querySelectorAll('.tab, .panel').forEach(function (element) { element.classList.remove('active'); });
+      var tab = document.querySelector('.tab[data-panel="' + panel + '"]');
+      var section = document.getElementById(panel + '-panel');
+      if (tab) tab.classList.add('active');
+      if (section) section.classList.add('active');
+    }
+  </script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>
